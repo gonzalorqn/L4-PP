@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "countries-app-f4694": {
+      "hosting": {
+        "L4-PP": [
+          "countries-app-f4694"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #3f3f3f;
+    color: #dedede;
+}
+
+img{
+    width: 50px;
+    height: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+
+.mydialog {
+    width: 25vw;
+}
+
+.pais-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #191919;
+}
+.pais-details > div {
+    display: flex;
+    align-items: center;
+}
+.pais-details > div img {
+    margin-right: 14px;
+}
+.pais-detail {
+    padding: 0 1em 1em 1em;
+    border-bottom: 1px solid #191919;
+    margin: 1em;
+}
+.filter-container {
+    text-align: center;
+}
+.ui-panel-content {
+    padding: 1em;
+}
+
+@media screen and (max-width: 40em) {
+    .mydialog {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    .pais-details img {
+         width: 75px;
+    }
+    .filter-container {
+        text-align: left;
+    }
+}

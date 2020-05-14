@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "L4-PP",
+      "public": "dist/L4-PP",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

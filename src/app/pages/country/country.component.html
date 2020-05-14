@@ -1,0 +1,22 @@
+<br>
+<img src="../../../assets/banner.png" style="height: 60px; width: auto;" class="center">
+<br>
+<div class="ui-g ui-fluid" style="text-align: center;">
+    <div class="ui-g-12 ui-md-6" style="margin-left: auto; margin-right: auto;">
+        <p-card class="center">
+            <h2><u>{{pais.name}}</u></h2>
+            <img [src]="pais.flag" class="center">
+            <div style="text-align: left; padding-left: 5%;">
+                <h3>- <u>Capital:</u> {{pais.capital}}</h3>
+                <h3>- <u>Region:</u> {{pais.region}}</h3>
+                <h3>- <u>Subregion:</u> {{pais.subregion}}</h3>
+                <h3>- <u>Population:</u> {{pais.population}}</h3>
+                <h3>- <u>Language/s:</u></h3>
+                <div *ngFor="let lang of pais.languages">
+                    <h4 style="padding-left: 35%;">- {{lang.name}}</h4>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    
+</div>

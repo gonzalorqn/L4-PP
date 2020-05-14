@@ -1,0 +1,55 @@
+<p-dataView #dv [value]="listado" [paginator]="true" [rows]="rows" paginatorPosition="both" filterBy="name"
+    [sortField]="sortField" [sortOrder]="sortOrder" id="dataView">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4">
+                    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+                </div>
+                <div class="ui-g-6 ui-md-4 filter-container">
+                    <div style="position:relative">
+                        <input type="search" pInputText placeholder="Search by name" (input)="dv.filter($event.target.value)">
+                    </div>
+                </div>
+                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+            </div>
+        </div>
+    </p-header>
+    <ng-template let-pais pTemplate="listItem">
+        <div class="ui-g-12">
+            <div class="pais-details">
+                <div>
+                    <img [src]="pais.flag" style="height: 60px; width: auto;">
+                    <div class="ui-g">
+                        <div class="ui-g-12">Name: <b>{{pais.name}}</b></div>
+                        <div class="ui-g-12">Capital: <b>{{pais.capital}}</b></div>
+                        <div class="ui-g-12">Code: <b>{{pais.alpha2Code}}</b></div>
+                    </div>
+                </div>
+                <div style="text-align:right;">
+                <button pButton type="button" class="ui-button-warning" icon="pi pi-star-o" (click)="saveFavorite(pais.alpha2Code)"></button>
+                <button pButton type="button" icon="pi pi-search" (click)="selectPais($event, pais.alpha2Code)"></button>
+            </div></div>
+        </div>
+    </ng-template>
+    <ng-template let-pais pTemplate="gridItem">
+        <div style="padding:.5em" class="ui-g-12 ui-md-3">
+            <p-panel [header]="pais.name" [style]="{'text-align':'center'}">
+                <img [src]="pais.flag" height="60">
+                <div class="pais-detail">{{pais.alpha2Code}} - {{pais.capital}}</div>
+                <button pButton type="button" class="ui-button-warning" icon="pi pi-star-o" (click)="saveFavorite(pais.alpha2Code)"></button>
+                <button pButton type="button" icon="pi pi-search" (click)="selectPais($event, pais.alpha2Code)" style="margin-top:0"></button>
+            </p-panel>
+        </div>
+    </ng-template>
+</p-dataView>
+<p-dialog [header]="header" [(visible)]="displayModal" [modal]="true" styleClass="mydialog" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p>
+        {{this.message}}
+    </p>
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" class="ui-button-info" (click)="displayClose()" label="OK"></button>
+    </p-footer>
+</p-dialog>
